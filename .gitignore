@@ -64,7 +64,12 @@ web_modules/
 
 # Yarn Integrity file
 .yarn-integrity
+# Python Environment
+.venv/
+__pycache__/
 
+# CropIQ Data Files
+data/*.csv
 # dotenv environment variable files
 .env
 .env.*
