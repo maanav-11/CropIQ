@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3000,
+            "driver": "PostgreSQL",
+            "name": "CropIQ",
+            "database": "CropIQ",
+            "username": "postgres",
+            "password": "Maanav@11"
+        }
+    ]
+}
