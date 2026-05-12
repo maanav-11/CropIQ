@@ -39,11 +39,7 @@ const Layout = ({ children }) => {
             ))}
           </div>
           
-          <div className="hidden md:block">
-            <button className="btn-primary text-sm">
-              Launch Analysis
-            </button>
-          </div>
+
         </div>
       </nav>
 

@@ -5,6 +5,7 @@ import pandas as pd
 import joblib
 from pathlib import Path
 import os
+import numpy as np
 from sqlalchemy import create_engine, text
 
 app = FastAPI(title="CropIQ API")
@@ -159,21 +160,27 @@ def get_forecast(state: str, crop: str, year: int = None):
         start_year = year if year else max_year + 1
         
         forecasts = []
+        
         for i in range(0, 3):
             future_year = start_year + i
+            
+            # Introduce slight variation in rainfall for each year to make forecast dynamic
+            # (Simulates +/- 5% variation around the average)
+            variation = 1 + (np.sin(i * 1.5) * 0.05) 
+            projected_rainfall = avg_rainfall * variation
             
             sample = pd.DataFrame([{
                 'State_Name': state,
                 'Crop': crop,
                 'Crop_Year': future_year,
-                'ANNUAL': avg_rainfall
+                'ANNUAL': projected_rainfall
             }])
             
             pred_yield = model.predict(sample)[0]
             forecasts.append({
                 "year": future_year,
                 "forecast_yield": float(pred_yield),
-                "expected_rainfall": float(avg_rainfall)
+                "expected_rainfall": float(projected_rainfall)
             })
             
         return {

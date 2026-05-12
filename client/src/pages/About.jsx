@@ -56,10 +56,7 @@ const About = () => {
                 for generations to come.
               </p>
             </div>
-            <div className="flex gap-4">
-              <button className="btn-primary">View Project Source</button>
-              <button className="btn-secondary">Technical Docs</button>
-            </div>
+
           </div>
           <div className="w-full md:w-1/3 grid grid-cols-2 gap-4">
              <div className="aspect-square bg-slate-900/80 rounded-2xl border border-slate-800 flex flex-col items-center justify-center p-4">
