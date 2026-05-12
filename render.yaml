@@ -15,6 +15,4 @@ services:
 
 databases:
   - name: cropiq-db
-    databaseName: cropiq
-    user: postgres
     plan: free # Change to 'starter' for production
